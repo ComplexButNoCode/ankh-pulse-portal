@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -165,47 +166,54 @@ export default {
 						backgroundPosition: '0% 50%'
 					}
 				},
-				'aurora-flow': {
+				'smooth-flow': {
 					'0%, 100%': {
-						backgroundPosition: '0% 50%'
+						backgroundPosition: '0% 50%',
+						transform: 'scale(1)'
 					},
 					'25%': {
-						backgroundPosition: '100% 100%'
+						backgroundPosition: '50% 100%',
+						transform: 'scale(1.02)'
 					},
 					'50%': {
-						backgroundPosition: '100% 0%'
+						backgroundPosition: '100% 50%',
+						transform: 'scale(1)'
 					},
 					'75%': {
-						backgroundPosition: '0% 100%'
+						backgroundPosition: '50% 0%',
+						transform: 'scale(1.02)'
 					}
 				},
-				'aurora-wave': {
+				'smooth-wave': {
 					'0%, 100%': {
-						backgroundPosition: '0% 0%'
+						backgroundPosition: '0% 0%',
+						opacity: '0.8'
 					},
 					'33%': {
-						backgroundPosition: '100% 50%'
+						backgroundPosition: '100% 50%',
+						opacity: '0.9'
 					},
 					'66%': {
-						backgroundPosition: '50% 100%'
+						backgroundPosition: '0% 100%',
+						opacity: '0.7'
 					}
 				},
-				'fluid-move': {
+				'deep-flow': {
 					'0%, 100%': {
 						transform: 'rotate(0deg) scale(1)',
-						filter: 'hue-rotate(0deg)'
+						filter: 'brightness(1)'
 					},
 					'25%': {
-						transform: 'rotate(90deg) scale(1.1)',
-						filter: 'hue-rotate(90deg)'
+						transform: 'rotate(2deg) scale(1.05)',
+						filter: 'brightness(1.1)'
 					},
 					'50%': {
-						transform: 'rotate(180deg) scale(1.05)',
-						filter: 'hue-rotate(180deg)'
+						transform: 'rotate(0deg) scale(1.03)',
+						filter: 'brightness(0.95)'
 					},
 					'75%': {
-						transform: 'rotate(270deg) scale(1.1)',
-						filter: 'hue-rotate(270deg)'
+						transform: 'rotate(-2deg) scale(1.05)',
+						filter: 'brightness(1.05)'
 					}
 				},
 				'waveform': {
@@ -238,9 +246,9 @@ export default {
 				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'aurora': 'aurora 15s ease infinite',
-				'aurora-flow': 'aurora-flow 20s ease-in-out infinite',
-				'aurora-wave': 'aurora-wave 15s ease-in-out infinite reverse',
-				'fluid-move': 'fluid-move 25s ease-in-out infinite',
+				'smooth-flow': 'smooth-flow 15s ease-in-out infinite',
+				'smooth-wave': 'smooth-wave 12s ease-in-out infinite reverse',
+				'deep-flow': 'deep-flow 20s ease-in-out infinite',
 				'waveform': 'waveform 1s ease-in-out infinite',
 				'morph': 'morph 8s ease-in-out infinite'
 			},
