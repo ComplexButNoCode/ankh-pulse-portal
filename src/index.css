@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,19 +37,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +92,44 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .cosmic-gradient {
+    background: linear-gradient(135deg, #020617 0%, #1e1b4b 25%, #312e81 50%, #4338ca 75%, #5b73ff 100%);
+  }
+
+  .aurora-gradient {
+    background: linear-gradient(-45deg, #020617, #1e1b4b, #312e81, #4338ca, #5b73ff, #7c3aed, #a855f7);
+    background-size: 400% 400%;
+  }
+
+  .ethereal-text {
+    background: linear-gradient(135deg, #e0e9ff, #c7d9ff, #a5c0ff, #7f9cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-text {
+    text-shadow: 0 0 10px rgba(91, 115, 255, 0.5), 0 0 20px rgba(91, 115, 255, 0.3), 0 0 30px rgba(91, 115, 255, 0.2);
+  }
+
+  .liquid-morph {
+    background: linear-gradient(45deg, rgba(91, 115, 255, 0.1), rgba(124, 58, 237, 0.1), rgba(168, 85, 247, 0.1));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(91, 115, 255, 0.2);
+  }
+
+  .cosmic-blur {
+    backdrop-filter: blur(30px) saturate(180%);
+    background: rgba(2, 6, 23, 0.7);
+    border: 1px solid rgba(91, 115, 255, 0.1);
   }
 }
