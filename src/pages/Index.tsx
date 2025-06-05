@@ -9,7 +9,7 @@ import AmbientAudio from '../components/AmbientAudio';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-void-950 overflow-x-hidden relative">
+    <div className="min-h-screen overflow-x-hidden relative">
       {/* Ambient audio component */}
       <AmbientAudio />
       
@@ -20,19 +20,16 @@ const Index = () => {
       <ManifestoSection />
       <FrequencySection />
       
-      {/* Dynamic cosmic background effects */}
+      {/* Lovable.dev inspired background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        {/* Base gradient layer */}
-        <div className="absolute inset-0 aurora-gradient animate-aurora-flow" />
+        {/* Base gradient identical to Lovable.dev */}
+        <div className="absolute inset-0 lovable-gradient-animated" />
         
-        {/* Secondary flowing gradient */}
-        <div className="absolute inset-0 aurora-gradient-alt opacity-60" />
+        {/* Mesh pattern overlay */}
+        <div className="absolute inset-0 lovable-mesh" />
         
-        {/* Fluid moving gradients */}
-        <div className="absolute inset-0 fluid-gradient opacity-40" />
-        
-        {/* Final blend overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-void-950/20 via-transparent to-void-950/40" />
+        {/* Subtle radial overlay for depth */}
+        <div className="absolute inset-0 lovable-overlay" />
       </div>
     </div>
   );

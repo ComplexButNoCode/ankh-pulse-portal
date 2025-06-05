@@ -101,31 +101,53 @@
 }
 
 @layer utilities {
-  .cosmic-gradient {
-    background: linear-gradient(135deg, #020617 0%, #1e1b4b 25%, #312e81 50%, #4338ca 75%, #5b73ff 100%);
-  }
-
-  .aurora-gradient {
-    background: linear-gradient(-45deg, 
-      #020617, #0c1631, #1e1b4b, #2d1b69, 
-      #312e81, #4c1d95, #4338ca, #3730a3,
-      #5b73ff, #6366f1, #7c3aed, #8b5cf6,
-      #a855f7, #c084fc, #38bdf8, #0ea5e9,
-      #0284c7, #0369a1, #1e40af, #1e3a8a
+  .lovable-gradient {
+    background: linear-gradient(135deg, 
+      #0a0a0f 0%,
+      #1a1a2e 15%,
+      #16213e 30%,
+      #0f3460 45%,
+      #0e4b99 60%,
+      #2563eb 75%,
+      #3b82f6 90%,
+      #60a5fa 100%
     );
-    background-size: 600% 600%;
-    animation: aurora-flow 20s ease-in-out infinite;
   }
 
-  .aurora-gradient-alt {
-    background: linear-gradient(125deg, 
-      #020617 0%, #0c1631 10%, #1e1b4b 20%, 
-      #312e81 30%, #4338ca 40%, #5b73ff 50%,
-      #7c3aed 60%, #a855f7 70%, #38bdf8 80%,
-      #0ea5e9 90%, #020617 100%
+  .lovable-gradient-animated {
+    background: linear-gradient(-45deg, 
+      #0a0a0f,
+      #1a1a2e,
+      #16213e,
+      #0f3460,
+      #0e4b99,
+      #2563eb,
+      #3b82f6,
+      #60a5fa,
+      #93c5fd,
+      #dbeafe
     );
     background-size: 400% 400%;
-    animation: aurora-wave 15s ease-in-out infinite reverse;
+    animation: lovable-flow 15s ease-in-out infinite;
+  }
+
+  .lovable-overlay {
+    background: radial-gradient(ellipse at center, 
+      transparent 0%,
+      rgba(10, 10, 15, 0.1) 25%,
+      rgba(10, 10, 15, 0.3) 50%,
+      rgba(10, 10, 15, 0.6) 75%,
+      rgba(10, 10, 15, 0.8) 100%
+    );
+  }
+
+  .lovable-mesh {
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.2) 0%, transparent 50%),
+      radial-gradient(circle at 75% 25%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 25% 75%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 75% 75%, rgba(147, 197, 253, 0.08) 0%, transparent 50%);
+    animation: lovable-mesh-move 20s ease-in-out infinite;
   }
 
   .ethereal-text {
@@ -150,75 +172,34 @@
     background: rgba(2, 6, 23, 0.7);
     border: 1px solid rgba(91, 115, 255, 0.1);
   }
-
-  .fluid-gradient {
-    background: radial-gradient(circle at 20% 50%, 
-      rgba(91, 115, 255, 0.3) 0%, 
-      rgba(124, 58, 237, 0.2) 25%, 
-      rgba(168, 85, 247, 0.15) 50%, 
-      rgba(56, 189, 248, 0.1) 75%, 
-      transparent 100%
-    ), 
-    radial-gradient(circle at 80% 20%, 
-      rgba(124, 58, 237, 0.4) 0%, 
-      rgba(168, 85, 247, 0.3) 25%, 
-      rgba(56, 189, 248, 0.2) 50%, 
-      rgba(14, 165, 233, 0.1) 75%, 
-      transparent 100%
-    ),
-    radial-gradient(circle at 40% 80%, 
-      rgba(56, 189, 248, 0.3) 0%, 
-      rgba(14, 165, 233, 0.2) 25%, 
-      rgba(91, 115, 255, 0.15) 50%, 
-      rgba(124, 58, 237, 0.1) 75%, 
-      transparent 100%
-    );
-    animation: fluid-move 25s ease-in-out infinite;
-  }
 }
 
-@keyframes aurora-flow {
+@keyframes lovable-flow {
   0%, 100% {
     background-position: 0% 50%;
   }
   25% {
-    background-position: 100% 100%;
+    background-position: 100% 25%;
   }
   50% {
-    background-position: 100% 0%;
-  }
-  75% {
-    background-position: 0% 100%;
-  }
-}
-
-@keyframes aurora-wave {
-  0%, 100% {
-    background-position: 0% 0%;
-  }
-  33% {
-    background-position: 100% 50%;
-  }
-  66% {
     background-position: 50% 100%;
   }
+  75% {
+    background-position: 25% 0%;
+  }
 }
 
-@keyframes fluid-move {
+@keyframes lovable-mesh-move {
   0%, 100% {
-    transform: rotate(0deg) scale(1);
-    filter: hue-rotate(0deg);
+    transform: translateX(0%) translateY(0%);
   }
   25% {
-    transform: rotate(90deg) scale(1.1);
-    filter: hue-rotate(90deg);
+    transform: translateX(-5%) translateY(-10%);
   }
   50% {
-    transform: rotate(180deg) scale(1.05);
-    filter: hue-rotate(180deg);
+    transform: translateX(5%) translateY(5%);
   }
   75% {
-    transform: rotate(270deg) scale(1.1);
-    filter: hue-rotate(270deg);
+    transform: translateX(-2%) translateY(-5%);
   }
 }
