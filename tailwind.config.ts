@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,7 +62,6 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// ANKH custom colors
 				cosmos: {
 					'50': '#f0f4ff',
 					'100': '#e0e9ff',
@@ -167,6 +165,49 @@ export default {
 						backgroundPosition: '0% 50%'
 					}
 				},
+				'aurora-flow': {
+					'0%, 100%': {
+						backgroundPosition: '0% 50%'
+					},
+					'25%': {
+						backgroundPosition: '100% 100%'
+					},
+					'50%': {
+						backgroundPosition: '100% 0%'
+					},
+					'75%': {
+						backgroundPosition: '0% 100%'
+					}
+				},
+				'aurora-wave': {
+					'0%, 100%': {
+						backgroundPosition: '0% 0%'
+					},
+					'33%': {
+						backgroundPosition: '100% 50%'
+					},
+					'66%': {
+						backgroundPosition: '50% 100%'
+					}
+				},
+				'fluid-move': {
+					'0%, 100%': {
+						transform: 'rotate(0deg) scale(1)',
+						filter: 'hue-rotate(0deg)'
+					},
+					'25%': {
+						transform: 'rotate(90deg) scale(1.1)',
+						filter: 'hue-rotate(90deg)'
+					},
+					'50%': {
+						transform: 'rotate(180deg) scale(1.05)',
+						filter: 'hue-rotate(180deg)'
+					},
+					'75%': {
+						transform: 'rotate(270deg) scale(1.1)',
+						filter: 'hue-rotate(270deg)'
+					}
+				},
 				'waveform': {
 					'0%, 100%': { 
 						transform: 'scaleY(0.3)'
@@ -197,11 +238,15 @@ export default {
 				'pulse-glow': 'pulse-glow 3s ease-in-out infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'aurora': 'aurora 15s ease infinite',
+				'aurora-flow': 'aurora-flow 20s ease-in-out infinite',
+				'aurora-wave': 'aurora-wave 15s ease-in-out infinite reverse',
+				'fluid-move': 'fluid-move 25s ease-in-out infinite',
 				'waveform': 'waveform 1s ease-in-out infinite',
 				'morph': 'morph 8s ease-in-out infinite'
 			},
 			backgroundSize: {
-				'400%': '400% 400%'
+				'400%': '400% 400%',
+				'600%': '600% 600%'
 			}
 		}
 	},
