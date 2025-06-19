@@ -3,7 +3,7 @@ import React from 'react';
 import IntroSection from '../components/IntroSection';
 import PulseSection from '../components/PulseSection';
 import GridSection from '../components/GridSection';
-import ManifestoSection from '../components/ManifestoSection';
+import MusicPreviewSection from '../components/MusicPreviewSection';
 import FrequencySection from '../components/FrequencySection';
 import MiniPlayer from '../components/MiniPlayer';
 
@@ -17,7 +17,7 @@ const Index = () => {
       <IntroSection />
       <PulseSection />
       <GridSection />
-      <ManifestoSection />
+      <MusicPreviewSection />
       <FrequencySection />
       
       {/* Lovable.dev inspired background */}
