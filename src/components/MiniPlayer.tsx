@@ -1,52 +1,40 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
-
 const MiniPlayer = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
   const [waveformData, setWaveformData] = useState<number[]>([]);
   const [trackName, setTrackName] = useState('');
-
   const audioSrc = '/audio/The-beginning-of-the-dark-waves-critical.mp3';
-
   useEffect(() => {
     const name = audioSrc.split('/').pop()?.replace(/\.[^/.]+$/, '') || '';
     const cleaned = name.replace(/[-_]/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     setTrackName(cleaned);
   }, []);
-
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-
     const context = new AudioContext();
     const source = context.createMediaElementSource(audio);
     const analyser = context.createAnalyser();
     analyser.fftSize = 32;
     source.connect(analyser);
     analyser.connect(context.destination);
-
     const dataArray = new Uint8Array(analyser.frequencyBinCount);
-
     const update = () => {
       analyser.getByteFrequencyData(dataArray);
-      const values = Array.from(dataArray)
-        .slice(0, 10)
-        .map(v => Math.min(Math.max(2, v * 0.2), 8));
+      const values = Array.from(dataArray).slice(0, 10).map(v => Math.min(Math.max(2, v * 0.2), 8));
       setWaveformData(values);
       requestAnimationFrame(update);
     };
-
     requestAnimationFrame(update);
-
     return () => {
       source.disconnect();
       analyser.disconnect();
       context.close();
     };
   }, []);
-
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -58,29 +46,20 @@ const MiniPlayer = () => {
       setIsPlaying(false);
     }
   };
-
   const toggleMute = () => {
     if (audioRef.current) {
       audioRef.current.muted = !isMuted;
       setIsMuted(!isMuted);
     }
   };
-
-  return (
-    <div className="fixed bottom-4 right-4 z-50 flex items-center space-x-2 backdrop-blur-sm bg-white/10 border border-white/10 px-3 py-2 rounded-xl text-white">
+  return <div className="fixed bottom-4 right-4 z-50 flex items-center space-x-2 backdrop-blur-sm bg-white/10 border border-white/10 px-3 py-2 rounded-xl text-white">
       <audio ref={audioRef} src={audioSrc} loop preload="auto" />
 
-      {isPlaying && (
-        <div className="flex items-center space-x-[2px] h-6">
-          {waveformData.map((h, i) => (
-            <div
-              key={i}
-              className="bg-white w-0.5 rounded-full transition-all duration-75 origin-center"
-              style={{ height: `${h}px` }}
-            />
-          ))}
-        </div>
-      )}
+      {isPlaying && <div className="flex items-center space-x-[2px] h-6">
+          {waveformData.map((h, i) => <div key={i} className="bg-white w-0.5 rounded-full transition-all duration-75 origin-center" style={{
+        height: `${h}px`
+      }} />)}
+        </div>}
 
       <div className="relative ml-3 max-w-[90px] group overflow-hidden">
         <span className="text-[10px] font-light truncate block max-w-[90px] transition-[max-width] duration-500 ease-in-out group-hover:max-w-[200px] group-hover:overflow-visible group-hover:whitespace-normal">
@@ -89,16 +68,10 @@ const MiniPlayer = () => {
       </div>
 
       <div className="flex items-center space-x-2 ml-3">
-        <button
-          onClick={togglePlay}
-          className="hover:scale-110 active:scale-95 hover:rotate-[5deg] transition-all duration-300"
-        >
+        <button onClick={togglePlay} className="hover:scale-110 active:scale-95 hover:rotate-[5deg] transition-all duration-300">
           {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
         </button>
-        <button
-          onClick={toggleMute}
-          className="hover:scale-110 active:scale-95 hover:rotate-[-5deg] transition-all duration-300"
-        >
+        <button onClick={toggleMute} className="hover:scale-110 active:scale-95 hover:rotate-[-5deg] transition-all duration-300">
           {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
         </button>
 
@@ -107,8 +80,6 @@ const MiniPlayer = () => {
           <span className="text-[10px] text-white tracking-widest font-medium">LIVE</span>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default MiniPlayer;
