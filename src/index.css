@@ -180,6 +180,21 @@
     background: rgba(2, 6, 23, 0.7);
     border: 1px solid rgba(91, 115, 255, 0.1);
   }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fadeIn {
+    animation: fadeIn 1s ease-out forwards;
+  }
 }
 
 @keyframes lovable-flow {
