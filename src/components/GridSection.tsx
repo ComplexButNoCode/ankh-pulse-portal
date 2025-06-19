@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const GridSection = () => {
@@ -34,10 +33,10 @@ const GridSection = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-ankh font-black ethereal-text glow-text mb-6">
+          <h2 className="font-ethereal text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight leading-[1.05] mb-6 text-foreground">
             THE GRID
           </h2>
-          <p className="text-xl md:text-2xl font-ethereal text-aurora-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="font-ethereal text-[1.25rem] md:text-[1.5rem] text-aurora-300 max-w-3xl mx-auto leading-relaxed font-medium">
             A living mosaic of moments, memories, and manifestations. Each cell pulses with collective energy.
           </p>
         </div>
@@ -77,10 +76,10 @@ const GridSection = () => {
                     transition-all duration-300
                     ${hoveredIndex === index ? 'opacity-100 translate-y-0' : 'opacity-70 translate-y-2'}
                   `}>
-                    <h3 className="text-lg md:text-xl font-ankh font-bold text-white mb-2">
+                    <h3 className="text-subtitle mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-sm font-ethereal text-aurora-200 leading-relaxed">
+                    <p className="text-caption text-aurora-200 leading-relaxed">
                       {item.description}
                     </p>
                   </div>
@@ -98,7 +97,7 @@ const GridSection = () => {
         {/* Grid controls */}
         <div className="text-center mt-12">
           <div className="flex justify-center space-x-4">
-            <button className="cosmic-blur rounded-full px-6 py-3 font-ethereal text-aurora-200 hover:text-white transition-colors">
+            <button className="cosmic-blur rounded-full px-6 py-3 font-ethereal text-[1.1rem] text-aurora-200 hover:text-white transition-colors font-semibold">
               View All
             </button>
             <button className="cosmic-blur rounded-full px-6 py-3 font-ethereal text-aurora-200 hover:text-white transition-colors">
@@ -114,4 +113,5 @@ const GridSection = () => {
   );
 };
 
+export default GridSection;
 export default GridSection;

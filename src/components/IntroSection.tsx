@@ -47,10 +47,10 @@ const IntroSection = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-Pilowlava mb-2 ethereal-text glow-text">
+          <h1 className="font-ethereal text-[clamp(2.5rem,8vw,6rem)] font-bold tracking-tight leading-[1.05] mb-2 text-foreground">
             ANKH
           </h1>
-          <p className="text-xl md:text-2xl lg:text-3xl font-ethereal font-light text-aurora-200 glow-text animate-breathe">
+          <p className="font-ethereal text-[clamp(1.2rem,3vw,2.2rem)] text-aurora-200 animate-breathe font-medium leading-tight">
             Our vibration never stops.
           </p>
         </div>

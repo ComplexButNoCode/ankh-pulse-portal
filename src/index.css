@@ -1,5 +1,4 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @font-face {
   font-family: 'Pilowlava';
@@ -91,6 +90,109 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  /* --- TEXT REBRANDING INSPIRED BY EXAT --- */
+  h1, .text-display {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 700;
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5em;
+    text-wrap: balance;
+  }
+  h2, .text-title {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.4em;
+    text-wrap: balance;
+  }
+  h3, .text-subtitle {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3em;
+    text-wrap: balance;
+  }
+  h4, .text-lead {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    margin-bottom: 0.2em;
+  }
+  p, .text-body {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 400;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+    text-wrap: pretty;
+  }
+  .text-caption, small {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 400;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.7;
+    letter-spacing: 0.01em;
+  }
+  .text-overline {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    margin-bottom: 0.5em;
+    display: block;
+  }
+  a, .text-link {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    transition: color 0.2s;
+  }
+  a:hover, .text-link:hover {
+    text-decoration-thickness: 2px;
+    opacity: 0.85;
+  }
+  blockquote, .text-quote {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    font-style: italic;
+    opacity: 0.8;
+    border-left: 3px solid #a5c0ff;
+    padding-left: 1.2em;
+    margin: 1.5em 0;
+  }
+  ul, ol {
+    font-family: 'Space Grotesk', 'sans-serif';
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+    padding-left: 1.5em;
+  }
+  li {
+    margin-bottom: 0.4em;
+  }
+  strong, b {
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  em, i {
+    font-style: italic;
+    opacity: 0.85;
+  }
+  /* --- END TEXT REBRANDING --- */
 }
 
 @layer base {

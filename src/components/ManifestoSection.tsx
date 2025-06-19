@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 const ManifestoSection = () => {
@@ -49,6 +48,8 @@ const ManifestoSection = () => {
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8 md:space-y-12">
+            {/* Rebranding de diagramação de textos */}
+            <span className="uppercase tracking-widest text-[0.85rem] font-semibold text-aurora-300 mb-4 block">Manifesto</span>
             {manifestoText.map((text, index) => (
               <div
                 key={index}
@@ -62,11 +63,12 @@ const ManifestoSection = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <p className={`
-                  font-ankh font-black ethereal-text glow-text leading-tight
-                  ${index < 5 ? 'text-4xl md:text-6xl lg:text-7xl' : 
-                    index < 12 ? 'text-3xl md:text-5xl lg:text-6xl' : 
-                    'text-5xl md:text-7xl lg:text-8xl'}
-                  ${index === manifestoText.length - 1 ? 'animate-pulse-glow' : ''}
+                  ${index === 0 ? 'font-ethereal text-[2.5rem] md:text-[3.5rem] font-bold leading-tight mb-2' : ''}
+                  ${index > 0 && index < 5 ? 'font-ethereal text-[2rem] md:text-[2.5rem] font-semibold leading-tight mb-2' : ''}
+                  ${index >= 5 && index < 12 ? 'font-ethereal text-[1.25rem] md:text-[1.5rem] font-medium leading-snug mb-2' : ''}
+                  ${index >= 12 && index < manifestoText.length - 1 ? 'font-ethereal text-[1.1rem] md:text-[1.25rem] font-normal leading-snug mb-2' : ''}
+                  ${index === manifestoText.length - 1 ? 'font-ethereal text-[2.5rem] md:text-[3.5rem] font-black leading-tight mb-2 animate-pulse-glow' : ''}
+                  text-foreground
                 `}>
                   {text}
                 </p>
@@ -97,4 +99,5 @@ const ManifestoSection = () => {
   );
 };
 
+export default ManifestoSection;
 export default ManifestoSection;

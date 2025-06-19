@@ -83,7 +83,7 @@ const MiniPlayer = () => {
       )}
 
       <div className="relative ml-3 max-w-[90px] group overflow-hidden">
-        <span className="text-[10px] font-light truncate block max-w-[90px] transition-[max-width] duration-500 ease-in-out group-hover:max-w-[200px] group-hover:overflow-visible group-hover:whitespace-normal">
+        <span className="font-ethereal text-[0.7rem] font-light truncate block max-w-[90px] transition-[max-width] duration-500 ease-in-out group-hover:max-w-[200px] group-hover:overflow-visible group-hover:whitespace-normal">
           {trackName}
         </span>
       </div>

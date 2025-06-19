@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 
 const FrequencySection = () => {
@@ -19,10 +18,10 @@ const FrequencySection = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Main CTA */}
         <div className="mb-16">
-          <h2 className="text-5xl md:text-7xl font-ankh font-black ethereal-text glow-text mb-8">
+          <h2 className="font-ethereal text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight leading-[1.05] mb-8 text-foreground">
             JOIN THE FREQUENCY
           </h2>
-          <p className="text-xl md:text-2xl font-ethereal text-aurora-300 max-w-2xl mx-auto leading-relaxed mb-12">
+          <p className="font-ethereal text-[1.25rem] md:text-[1.5rem] text-aurora-300 max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
             Synchronize with the eternal pulse. Become part of the living broadcast.
           </p>
 
@@ -82,7 +81,7 @@ const FrequencySection = () => {
                 <div className="text-3xl mb-3 group-hover:animate-bounce">
                   {link.icon}
                 </div>
-                <div className="text-white font-ethereal font-medium">
+                <div className="text-caption font-medium">
                   {link.name}
                 </div>
               </div>
@@ -92,10 +91,9 @@ const FrequencySection = () => {
 
         {/* Additional CTAs */}
         <div className="space-y-6">
-          <button className="w-full max-w-md mx-auto block cosmic-blur rounded-2xl px-8 py-4 font-ankh font-bold text-xl text-cosmos-300 hover:text-white transition-all duration-300 hover:scale-105 hover:animate-pulse-glow">
+          <button className="w-full max-w-md mx-auto block cosmic-blur rounded-2xl px-8 py-4 font-ethereal text-[1.5rem] text-cosmos-300 hover:text-white transition-all duration-300 hover:scale-105 hover:animate-pulse-glow font-bold">
             STREAM NOW
           </button>
-          
           <div className="flex flex-col md:flex-row gap-4 justify-center">
             <button className="cosmic-blur rounded-xl px-6 py-3 font-ethereal text-aurora-200 hover:text-white transition-colors">
               Subscribe to Updates
@@ -112,7 +110,7 @@ const FrequencySection = () => {
         {/* Status indicator */}
         <div className="mt-12 flex items-center justify-center space-x-3">
           <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-          <span className="text-aurora-300 font-ethereal text-sm">
+          <span className="text-caption text-aurora-300">
             1,247 souls connected • Stream active 24/7
           </span>
         </div>
@@ -121,4 +119,6 @@ const FrequencySection = () => {
   );
 };
 
+export default FrequencySection;
+export default FrequencySection;
 export default FrequencySection;
