@@ -23,7 +23,7 @@ const AnkhGeometry = () => {
       {/* Círculo superior da cruz ANKH */}
       <mesh position={[0, 1.5, 0]}>
         <torusGeometry args={[0.6, 0.15, 16, 32]} />
-        <meshStandardMaterial 
+        <meshPhysicalMaterial
           color="#7f9cff" 
           emissive="#4f46e5" 
           emissiveIntensity={0.3}
@@ -35,7 +35,7 @@ const AnkhGeometry = () => {
       {/* Haste vertical */}
       <mesh position={[0, 0, 0]}>
         <boxGeometry args={[0.3, 3, 0.3]} />
-        <meshStandardMaterial 
+        <meshPhysicalMaterial 
           color="#7f9cff" 
           emissive="#4f46e5" 
           emissiveIntensity={0.3}
@@ -47,7 +47,7 @@ const AnkhGeometry = () => {
       {/* Haste horizontal */}
       <mesh position={[0, 0.5, 0]}>
         <boxGeometry args={[2, 0.3, 0.3]} />
-        <meshStandardMaterial 
+        <meshPhysicalMaterial 
           color="#7f9cff" 
           emissive="#4f46e5" 
           emissiveIntensity={0.3}
