@@ -44,7 +44,7 @@ const AmbientAudio = () => {
         preload="auto"
       >
         {/* In a real implementation, you would host an ambient audio file */}
-        <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmEhAy+R2fPOeCMFJH3M8NiQQQoUXrPq66hWFAlEm+Dytn8gAy2P3PlNBStcCQAAAA==" type="audio/wav" />
+          <source src="/audio/The-beginning-of-the-dark-waves-critical.mp3" type="audio/mp3" />
       </audio>
 
       {/* Audio control */}
