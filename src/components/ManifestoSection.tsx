@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 
 const ManifestoSection = () => {
@@ -27,24 +26,29 @@ const ManifestoSection = () => {
     const handleScroll = () => {
       const section = document.getElementById('manifesto-section');
       if (!section) return;
-
+      
       const rect = section.getBoundingClientRect();
       const windowHeight = window.innerHeight;
+      // Calcula o percentual de rolagem (0 até 1)
       const scrollProgress = Math.max(0, Math.min(1, (windowHeight - rect.top) / (windowHeight + rect.height)));
-      
       const paragraphsToShow = Math.floor(scrollProgress * manifestoText.length);
+      // Gera um array [0, 1, 2, ...] com a quantidade de parágrafos a ser exibida
       setVisibleParagraphs(Array.from({ length: paragraphsToShow }, (_, i) => i));
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Initial check
-    
+    handleScroll(); // Verificação inicial
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, [manifestoText.length]);
 
   return (
-    <section id="manifesto-section" className="relative min-h-[200vh] aurora-gradient animate-aurora">
+    <section
+      id="manifesto-section"
+      className="relative min-h-[200vh] aurora-gradient animate-aurora"
+    >
       <div className="sticky top-0 h-screen flex items-center justify-center">
+        {/* Overlay de fundo para dar profundidade */}
         <div className="absolute inset-0 bg-gradient-radial from-transparent via-void-900/30 to-void-900/60" />
         
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
@@ -53,28 +57,33 @@ const ManifestoSection = () => {
               <div
                 key={index}
                 className={`
-                  transition-all duration-1000 transform
-                  ${visibleParagraphs.includes(index) 
-                    ? 'opacity-100 translate-y-0 scale-100' 
-                    : 'opacity-0 translate-y-10 scale-95'
-                  }
+                  transition-all duration-1000 transform 
+                  ${visibleParagraphs.includes(index)
+                    ? 'opacity-100 translate-y-0 scale-100'
+                    : 'opacity-0 translate-y-10 scale-95'}
                 `}
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <p className={`
-                  font-ankh font-black ethereal-text glow-text leading-tight
-                  ${index < 5 ? 'text-4xl md:text-6xl lg:text-7xl' : 
-                    index < 12 ? 'text-3xl md:text-5xl lg:text-6xl' : 
-                    'text-5xl md:text-7xl lg:text-8xl'}
-                  ${index === manifestoText.length - 1 ? 'animate-pulse-glow' : ''}
-                `}>
+                <p
+                  className={`
+                    font-ankh font-black ethereal-text glow-text leading-tight
+                    ${
+                      index < 5
+                        ? 'text-4xl md:text-6xl lg:text-7xl'
+                        : index < 12
+                        ? 'text-3xl md:text-5xl lg:text-6xl'
+                        : 'text-5xl md:text-7xl lg:text-8xl'
+                    }
+                    ${index === manifestoText.length - 1 ? 'animate-pulse-glow' : ''}
+                  `}
+                >
                   {text}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* Floating ANKH symbols */}
+          {/* Símbolos ANKH flutuantes para um toque decorativo */}
           <div className="absolute inset-0 pointer-events-none">
             {[...Array(5)].map((_, i) => (
               <div
