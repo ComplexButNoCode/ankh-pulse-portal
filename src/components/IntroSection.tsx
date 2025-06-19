@@ -1,30 +1,19 @@
-
 import React, { useEffect, useState } from 'react';
-
 const IntroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 500);
     return () => clearTimeout(timer);
   }, []);
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden aurora-gradient animate-aurora">
+  return <section className="relative min-h-screen flex items-center justify-center overflow-hidden aurora-gradient animate-aurora">
       {/* Floating particles */}
       <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-1 bg-cosmos-400 rounded-full animate-float opacity-60"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 6}s`,
-              animationDuration: `${4 + Math.random() * 4}s`
-            }}
-          />
-        ))}
+        {[...Array(20)].map((_, i) => <div key={i} className="absolute w-1 h-1 bg-cosmos-400 rounded-full animate-float opacity-60" style={{
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 6}s`,
+        animationDuration: `${4 + Math.random() * 4}s`
+      }} />)}
       </div>
 
       {/* Central content */}
@@ -44,7 +33,7 @@ const IntroSection = () => {
 
         {/* Manifesto */}
         <div className={`transition-all duration-2000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-pilowlava font-black mb-6 ethereal-text glow-text">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-Pilowlava Regular font font-black mb-6 ethereal-text glow-text">
             ANKH
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-ethereal font-light text-aurora-200 glow-text animate-breathe">
@@ -64,8 +53,6 @@ const IntroSection = () => {
           <div className="w-1 h-3 bg-cosmos-400 rounded-full mx-auto mt-2 animate-pulse" />
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default IntroSection;
