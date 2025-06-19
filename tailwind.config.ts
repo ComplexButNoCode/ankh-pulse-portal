@@ -104,7 +104,8 @@ export default {
 			},
 			fontFamily: {
 				'ankh': ['Orbitron', 'monospace'],
-				'ethereal': ['Space Grotesk', 'sans-serif']
+				'ethereal': ['Space Grotesk', 'sans-serif'],
+				'pilowlava': ['Pilowlava', 'serif']
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
