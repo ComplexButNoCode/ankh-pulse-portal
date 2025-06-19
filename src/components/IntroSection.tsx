@@ -24,7 +24,7 @@ const IntroSection = () => {
             <div className="w-24 h-32 mx-auto liquid-morph animate-morph animate-pulse-glow">
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-6xl font-ankh font-black ethereal-text glow-text animate-breathe">
-                  ⚶
+                  ☥
                 </div>
               </div>
             </div>
