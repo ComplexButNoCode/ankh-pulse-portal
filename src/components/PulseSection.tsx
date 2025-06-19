@@ -85,4 +85,3 @@ const PulseSection = () => {
 };
 
 export default PulseSection;
-export default PulseSection;

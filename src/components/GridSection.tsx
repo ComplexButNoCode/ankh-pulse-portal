@@ -109,9 +109,3 @@ const GridSection = () => {
 };
 
 export default GridSection;
-    </section>
-  );
-};
-
-export default GridSection;
-export default GridSection;

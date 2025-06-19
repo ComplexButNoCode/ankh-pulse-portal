@@ -120,5 +120,3 @@ const FrequencySection = () => {
 };
 
 export default FrequencySection;
-export default FrequencySection;
-export default FrequencySection;

@@ -100,4 +100,3 @@ const ManifestoSection = () => {
 };
 
 export default ManifestoSection;
-export default ManifestoSection;
