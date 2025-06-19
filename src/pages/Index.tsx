@@ -5,7 +5,6 @@ import PulseSection from '../components/PulseSection';
 import GridSection from '../components/GridSection';
 import ManifestoSection from '../components/ManifestoSection';
 import FrequencySection from '../components/FrequencySection';
-import AmbientAudio from '../components/AmbientAudio';
 import MiniPlayer from '../components/MiniPlayer';
 
 const Index = () => {
