@@ -44,12 +44,9 @@ const songs: Song[] = [
 
 const MusicPreviewSection = () => {
   const [rotation, setRotation] = useState<number>(0);
-  const [isDragging, setIsDragging] = useState<boolean>(false);
-  const [startX, setStartX] = useState<number>(0);
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  // Scroll control
   useEffect(() => {
     const handleScroll = (e: WheelEvent) => {
       setRotation((prev) => prev + e.deltaY * 0.2);
@@ -57,23 +54,6 @@ const MusicPreviewSection = () => {
     window.addEventListener('wheel', handleScroll);
     return () => window.removeEventListener('wheel', handleScroll);
   }, []);
-
-  // Mouse drag control
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.clientX);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    const deltaX = e.clientX - startX;
-    setStartX(e.clientX);
-    setRotation((prev) => prev + deltaX * 0.5);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
 
   const handleCoverClick = (index: number) => {
     setCurrentIndex(index);
@@ -86,49 +66,44 @@ const MusicPreviewSection = () => {
   };
 
   return (
-    <section
-      className="relative min-h-screen bg-gray-900 flex items-center justify-center overflow-hidden select-none"
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
-    >
+    <section className="relative min-h-screen bg-gray-900 overflow-hidden flex items-center justify-center select-none">
       {/* Texto central */}
       <div className="absolute text-center text-white">
         <h2 className="text-2xl font-semibold mb-2">
           The future is built on Artificial Intelligence
         </h2>
-        <p className="text-sm tracking-wide">Scroll or Drag to Explore</p>
+        <p className="text-sm uppercase tracking-widest">Scroll to Explore</p>
       </div>
 
       {/* Círculo de capas */}
       <div
-        className="relative w-[500px] h-[500px]"
-        onMouseDown={handleMouseDown}
+        className="relative w-[600px] h-[600px]"
         style={{
           transformStyle: 'preserve-3d',
-          transform: `rotate(${rotation}deg)`,
-          transition: isDragging ? 'none' : 'transform 0.3s ease-out',
+          transform: `rotateY(${rotation}deg)`,
+          transition: 'transform 0.3s ease-out',
+          perspective: '1000px',
         }}
       >
         {songs.map((song, index) => {
           const angle = (360 / songs.length) * index;
-          const radius = 180;
-          const x = radius * Math.cos((angle * Math.PI) / 180);
-          const y = radius * Math.sin((angle * Math.PI) / 180);
-
+          const translateZ = 250;
           return (
             <div
               key={song.id}
               onClick={() => handleCoverClick(index)}
-              className="absolute w-24 h-24 rounded overflow-hidden shadow-md border-2 border-white cursor-pointer transition-transform duration-300 hover:scale-110 hover:shadow-xl"
+              className="absolute w-28 h-28 rounded overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-110 hover:shadow-xl"
               style={{
-                transform: `translate(${x}px, ${y}px)`,
+                transform: `
+                  rotateY(${angle}deg)
+                  translateZ(${translateZ}px)
+                `,
               }}
             >
               <img
                 src={song.cover}
                 alt={song.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded"
               />
             </div>
           );
