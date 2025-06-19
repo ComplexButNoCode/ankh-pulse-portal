@@ -78,7 +78,11 @@ const MiniPlayer = () => {
         ))}
       </div>
 
-      <span className="text-[10px] font-light ml-3 truncate max-w-[90px]">{trackName}</span>
+      <div className="relative group ml-3">
+        <span className="text-[10px] font-light truncate max-w-[90px] group-hover:max-w-none group-hover:whitespace-normal group-hover:absolute group-hover:left-0 group-hover:bg-black group-hover:px-2 group-hover:py-1 group-hover:rounded-md transition-all duration-300">
+          {trackName}
+        </span>
+      </div>
 
       <div className="flex items-center space-x-2 ml-3">
         <button
@@ -93,6 +97,11 @@ const MiniPlayer = () => {
         >
           {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
         </button>
+
+        <div className="flex items-center space-x-1 pl-2 border-l border-white/20 ml-2">
+          <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+          <span className="text-[10px] text-white tracking-widest font-medium">LIVE</span>
+        </div>
       </div>
     </div>
   );
