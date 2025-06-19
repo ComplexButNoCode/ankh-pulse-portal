@@ -1,4 +1,3 @@
-
 import React from 'react';
 import IntroSection from '../components/IntroSection';
 import PulseSection from '../components/PulseSection';
@@ -6,6 +5,7 @@ import GridSection from '../components/GridSection';
 import MusicPreviewSection from '../components/MusicPreviewSection';
 import FrequencySection from '../components/FrequencySection';
 import MiniPlayer from '../components/MiniPlayer';
+import ManifestoSection from '../components/ManifestoSection';
 
 const Index = () => {
   return (
@@ -16,7 +16,7 @@ const Index = () => {
       {/* Main sections */}
       <IntroSection />
       <PulseSection />
-      <ManifestoSection.tsx />
+      <ManifestoSection />
       <MusicPreviewSection />
       <GridSection />
       <FrequencySection />
