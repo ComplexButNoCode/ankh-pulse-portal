@@ -16,6 +16,7 @@ const Index = () => {
       {/* Main sections */}
       <IntroSection />
       <PulseSection />
+      <ManifestoSection.tsx />
       <MusicPreviewSection />
       <GridSection />
       <FrequencySection />
