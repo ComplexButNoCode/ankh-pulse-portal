@@ -16,8 +16,8 @@ const Index = () => {
       {/* Main sections */}
       <IntroSection />
       <PulseSection />
-      <GridSection />
       <MusicPreviewSection />
+      <GridSection />
       <FrequencySection />
       
       {/* Lovable.dev inspired background */}
