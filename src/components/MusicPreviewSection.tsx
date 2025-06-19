@@ -35,7 +35,9 @@ const MusicPreviewSection = () => {
 			audioRef.current
 				.play()
 				.then(() => setIsPlaying(true))
-				.catch((err) => console.error('Erro ao tocar áudio:', err));
+				.catch((err) => {
+					// Removed console.error for production robustness
+				});
 		}
 	}, [currentIndex]);
 
