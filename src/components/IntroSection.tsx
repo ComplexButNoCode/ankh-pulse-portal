@@ -1,5 +1,5 @@
-
 import React, { useEffect, useState } from 'react';
+import AnkhSymbol3D from './AnkhSymbol3D';
 
 const IntroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,14 +29,10 @@ const IntroSection = () => {
 
       {/* Central content */}
       <div className="relative z-10 text-center px-6">
-        {/* ANKH Logo */}
+        {/* ANKH Logo 3D */}
         <div className={`mb-12 transition-all duration-2000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
           <div className="relative">
-            <div className="w-24 h-32 mx-auto flex items-center justify-center">
-              <div className="text-6xl font-ankh font-black ethereal-text glow-text animate-breathe">
-                ☥
-              </div>
-            </div>
+            <AnkhSymbol3D />
           </div>
         </div>
 
