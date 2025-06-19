@@ -7,7 +7,6 @@ const MiniPlayer = () => {
   const [isMuted, setIsMuted] = useState(false);
   const [waveformData, setWaveformData] = useState<number[]>([]);
   const [trackName, setTrackName] = useState('');
-  const [analyser, setAnalyser] = useState<AnalyserNode | null>(null);
 
   const audioSrc = '/audio/The-beginning-of-the-dark-waves-critical.mp3';
 
@@ -23,27 +22,26 @@ const MiniPlayer = () => {
 
     const context = new AudioContext();
     const source = context.createMediaElementSource(audio);
-    const analyserNode = context.createAnalyser();
-    analyserNode.fftSize = 32; // resolution
-    source.connect(analyserNode);
-    analyserNode.connect(context.destination);
-    setAnalyser(analyserNode);
+    const analyser = context.createAnalyser();
+    analyser.fftSize = 32;
+    source.connect(analyser);
+    analyser.connect(context.destination);
 
-    const bufferLength = analyserNode.frequencyBinCount;
+    const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
 
-    const updateWaveform = () => {
-      if (!analyserNode) return;
-      analyserNode.getByteFrequencyData(dataArray);
-      const normalized = Array.from(dataArray).slice(0, 12).map(v => (v / 255) * 100);
-      setWaveformData(normalized);
-      requestAnimationFrame(updateWaveform);
+    const update = () => {
+      analyser.getByteFrequencyData(dataArray);
+      const values = Array.from(dataArray).slice(0, 10).map(v => (v / 255) * 100);
+      setWaveformData(values);
+      requestAnimationFrame(update);
     };
 
-    requestAnimationFrame(updateWaveform);
+    requestAnimationFrame(update);
+
     return () => {
       source.disconnect();
-      analyserNode.disconnect();
+      analyser.disconnect();
       context.close();
     };
   }, []);
@@ -68,34 +66,28 @@ const MiniPlayer = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center space-x-3">
+    <div className="fixed bottom-4 right-4 z-50 flex items-center space-x-2">
       <audio ref={audioRef} src={audioSrc} loop preload="auto" />
 
-      <div className="cosmic-blur rounded-xl px-4 py-3 flex items-center space-x-3">
-        <div className="flex items-end space-x-0.5 h-8">
+      <div className="backdrop-blur-sm bg-white/10 border border-white/10 px-3 py-2 rounded-lg flex items-center space-x-2">
+        <div className="flex items-end space-x-[2px] h-6">
           {waveformData.map((height, index) => (
             <div
               key={index}
-              className="bg-gradient-to-t from-cosmos-600 to-cosmos-400 rounded-t-full w-1 transition-all duration-75"
+              className="bg-white rounded-full w-0.5 transition-all duration-75"
               style={{ height: `${height}%` }}
             />
           ))}
         </div>
-        <div className="flex flex-col ml-3">
-          <span className="text-xs font-ethereal text-aurora-200">{trackName}</span>
-          <div className="flex items-center space-x-2">
-            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
-            <span className="text-[10px] font-medium text-aurora-400">LIVE</span>
-          </div>
-        </div>
+        <span className="text-[10px] font-light text-white truncate max-w-[100px]">{trackName}</span>
       </div>
 
-      <div className="cosmic-blur rounded-xl p-2 flex items-center space-x-1">
-        <button onClick={togglePlay} className="p-2 hover:scale-110 transition-all duration-300">
-          {isPlaying ? <Pause className="w-4 h-4 text-cosmos-300" /> : <Play className="w-4 h-4 text-cosmos-300" />}
+      <div className="backdrop-blur-sm bg-white/10 border border-white/10 px-2 py-1 rounded-lg flex items-center space-x-1">
+        <button onClick={togglePlay} className="hover:scale-110 transition-all duration-300">
+          {isPlaying ? <Pause className="w-4 h-4 text-white" /> : <Play className="w-4 h-4 text-white" />}
         </button>
-        <button onClick={toggleMute} className="p-2 hover:scale-110 transition-all duration-300">
-          {isMuted ? <VolumeX className="w-4 h-4 text-cosmos-300" /> : <Volume2 className="w-4 h-4 text-cosmos-300" />}
+        <button onClick={toggleMute} className="hover:scale-110 transition-all duration-300">
+          {isMuted ? <VolumeX className="w-4 h-4 text-white" /> : <Volume2 className="w-4 h-4 text-white" />}
         </button>
       </div>
     </div>
