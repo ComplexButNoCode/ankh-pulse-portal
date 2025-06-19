@@ -10,9 +10,6 @@ import MiniPlayer from '../components/MiniPlayer';
 const Index = () => {
   return (
     <div className="min-h-screen overflow-x-hidden relative">
-      {/* Ambient audio component */}
-      <AmbientAudio />
-      
       {/* Mini Player */}
       <MiniPlayer />
       
