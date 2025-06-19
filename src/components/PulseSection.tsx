@@ -1,21 +1,7 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 const PulseSection = () => {
-  const [waveformData, setWaveformData] = useState<number[]>([]);
-
-  useEffect(() => {
-    // Generate random waveform data (in real implementation, this would connect to audio stream)
-    const generateWaveform = () => {
-      const data = Array.from({ length: 50 }, () => Math.random() * 100);
-      setWaveformData(data);
-    };
-
-    generateWaveform();
-    const interval = setInterval(generateWaveform, 200);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="relative min-h-screen flex items-center justify-center cosmic-gradient py-20">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-void-900/50 to-transparent" />
@@ -23,60 +9,75 @@ const PulseSection = () => {
       <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-7xl font-ankh font-black ethereal-text glow-text mb-6">
-            THE PULSE
+            NOSSA HISTÓRIA
           </h2>
           <p className="text-xl md:text-2xl font-ethereal text-aurora-300 max-w-3xl mx-auto leading-relaxed">
-            Feel the eternal rhythm. This is our collective heartbeat, streaming across dimensions.
+            A ANKH nasceu da necessidade de conectar o que não pode ser desconectado: música, espírito e movimento.
           </p>
         </div>
 
-        {/* Live stream status */}
-        <div className="flex items-center justify-center mb-12">
-          <div className="flex items-center space-x-3 cosmic-blur rounded-full px-6 py-3">
-            <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
-            <span className="text-aurora-200 font-ethereal font-medium">LIVE NOW</span>
+        {/* História em grid */}
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
+          <div className="cosmic-blur rounded-3xl p-8">
+            <h3 className="text-3xl font-ankh font-bold ethereal-text mb-6">O QUE SOMOS</h3>
+            <div className="space-y-4 text-aurora-200 font-ethereal leading-relaxed">
+              <p>
+                Somos uma casa de DJs e artistas, uma curadoria musical que transcende gêneros e fronteiras.
+              </p>
+              <p>
+                Nossa missão é descobrir, desenvolver e promover talentos únicos que compartilham nossa visão de música como força transformadora.
+              </p>
+            </div>
+          </div>
+
+          <div className="cosmic-blur rounded-3xl p-8">
+            <h3 className="text-3xl font-ankh font-bold ethereal-text mb-6">NOSSOS CLUBS</h3>
+            <div className="space-y-4 text-aurora-200 font-ethereal leading-relaxed">
+              <p>
+                Criamos experiências imersivas onde a música eletrônica encontra a espiritualidade, onde cada beat é uma oração e cada drop é uma revelação.
+              </p>
+              <p>
+                Nossos eventos são rituais modernos, celebrações da vida através do som.
+              </p>
+            </div>
+          </div>
+
+          <div className="cosmic-blur rounded-3xl p-8">
+            <h3 className="text-3xl font-ankh font-bold ethereal-text mb-6">STREAMING</h3>
+            <div className="space-y-4 text-aurora-200 font-ethereal leading-relaxed">
+              <p>
+                Nossa plataforma de streaming conecta almas ao redor do mundo, transmitindo frequências que elevam e inspiram 24/7.
+              </p>
+              <p>
+                Cada sessão é uma jornada sonora cuidadosamente curada pelos nossos artistas residentes.
+              </p>
+            </div>
+          </div>
+
+          <div className="cosmic-blur rounded-3xl p-8">
+            <h3 className="text-3xl font-ankh font-bold ethereal-text mb-6">PRODUÇÃO</h3>
+            <div className="space-y-4 text-aurora-200 font-ethereal leading-relaxed">
+              <p>
+                Como produtores, criamos soundscapes que transportam o ouvinte para dimensões inexploradas da consciência.
+              </p>
+              <p>
+                Cada track é uma manifestação de nossa filosofia: música como portal para o transcendente.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Waveform visualization */}
-        <div className="relative h-64 cosmic-blur rounded-3xl p-8 mb-8 animate-breathe">
-          <div className="flex items-end justify-center h-full space-x-1">
-            {waveformData.map((height, index) => (
-              <div
-                key={index}
-                className="bg-gradient-to-t from-cosmos-600 to-cosmos-400 rounded-t-full animate-waveform"
-                style={{
-                  height: `${height}%`,
-                  width: '8px',
-                  animationDelay: `${index * 0.1}s`
-                }}
-              />
-            ))}
-          </div>
-          
-          {/* Overlay effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cosmos-500/20 to-transparent animate-aurora rounded-3xl" />
-        </div>
-
-        {/* Stream controls */}
-        <div className="flex justify-center space-x-6">
-          <button className="cosmic-blur rounded-full p-4 hover:scale-110 transition-all duration-300 group">
-            <div className="w-8 h-8 ethereal-text text-2xl group-hover:animate-pulse">▶</div>
-          </button>
-          <button className="cosmic-blur rounded-full p-4 hover:scale-110 transition-all duration-300 group">
-            <div className="w-8 h-8 ethereal-text text-2xl group-hover:animate-pulse">⏸</div>
-          </button>
-          <button className="cosmic-blur rounded-full p-4 hover:scale-110 transition-all duration-300 group">
-            <div className="w-8 h-8 ethereal-text text-2xl group-hover:animate-pulse">🔊</div>
-          </button>
-        </div>
-
-        {/* Now playing info */}
-        <div className="text-center mt-8">
-          <div className="cosmic-blur rounded-2xl p-6 max-w-md mx-auto">
-            <p className="text-aurora-200 font-ethereal text-sm mb-2">NOW STREAMING</p>
-            <p className="text-cosmos-300 font-ankh text-lg font-bold">Cosmic Frequencies Vol. 1</p>
-            <p className="text-aurora-400 font-ethereal text-sm mt-1">Mixed by The Collective</p>
+        {/* Filosofia central */}
+        <div className="text-center">
+          <div className="cosmic-blur rounded-3xl p-12 max-w-4xl mx-auto">
+            <div className="text-6xl mb-6 ethereal-text">⚶</div>
+            <h3 className="text-4xl font-ankh font-bold ethereal-text mb-8">NOSSA FILOSOFIA</h3>
+            <p className="text-xl font-ethereal text-aurora-200 leading-relaxed mb-6">
+              A ANKH é o símbolo da vida eterna, e assim é nossa música - infinita, cíclica, sempre renascendo em novas formas.
+            </p>
+            <p className="text-lg font-ethereal text-aurora-300 leading-relaxed">
+              Somos mais que uma gravadora ou coletivo. Somos uma família, uma tribo, um movimento que pulsa em sintonia com o universo.
+            </p>
           </div>
         </div>
       </div>
