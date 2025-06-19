@@ -1,10 +1,10 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Mesh } from 'three';
+import { Group } from 'three';
 
 const AnkhGeometry = () => {
-  const meshRef = useRef<Mesh>(null);
+  const meshRef = useRef<Group>(null);
 
   useFrame((state) => {
     if (meshRef.current) {
