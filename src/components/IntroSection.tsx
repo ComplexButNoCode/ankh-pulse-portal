@@ -33,7 +33,7 @@ const IntroSection = () => {
 
         {/* Manifesto */}
         <div className={`transition-all duration-2000 delay-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-Pilowlava font font-cursive mb-6 ethereal-text glow-text">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-Pilowlava mb-6 ethereal-text glow-text">
             ANKH
           </h1>
           <p className="text-xl md:text-2xl lg:text-3xl font-ethereal font-light text-aurora-200 glow-text animate-breathe">
