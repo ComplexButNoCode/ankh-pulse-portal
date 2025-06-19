@@ -31,7 +31,9 @@ const MiniPlayer = () => {
 
     const update = () => {
       analyser.getByteFrequencyData(dataArray);
-      const values = Array.from(dataArray).slice(0, 10).map(v => (v / 255) * 100);
+      const values = Array.from(dataArray)
+        .slice(0, 10)
+        .map(v => Math.max(6, v * 0.4)); // altura limitada
       setWaveformData(values);
       requestAnimationFrame(update);
     };
@@ -74,14 +76,14 @@ const MiniPlayer = () => {
             <div
               key={i}
               className="bg-white w-0.5 rounded-full transition-all duration-75 origin-center"
-              style={{ height: `${h}%` }}
+              style={{ height: `${h}px` }}
             />
           ))}
         </div>
       )}
 
       <div className="relative ml-3 max-w-[90px] group overflow-hidden">
-        <span className="text-[10px] font-light truncate block transition-all duration-300 group-hover:max-w-[200px] group-hover:whitespace-normal group-hover:overflow-visible">
+        <span className="text-[10px] font-light truncate block max-w-[90px] transition-[max-width] duration-500 ease-in-out group-hover:max-w-[200px] group-hover:overflow-visible group-hover:whitespace-normal">
           {trackName}
         </span>
       </div>
