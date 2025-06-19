@@ -27,8 +27,7 @@ const MiniPlayer = () => {
     source.connect(analyser);
     analyser.connect(context.destination);
 
-    const bufferLength = analyser.frequencyBinCount;
-    const dataArray = new Uint8Array(bufferLength);
+    const dataArray = new Uint8Array(analyser.frequencyBinCount);
 
     const update = () => {
       analyser.getByteFrequencyData(dataArray);
@@ -66,28 +65,33 @@ const MiniPlayer = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 flex items-center space-x-2">
+    <div className="fixed bottom-4 right-4 z-50 flex items-center space-x-2 backdrop-blur-sm bg-white/10 border border-white/10 px-3 py-2 rounded-xl text-white">
       <audio ref={audioRef} src={audioSrc} loop preload="auto" />
 
-      <div className="backdrop-blur-sm bg-white/10 border border-white/10 px-3 py-2 rounded-lg flex items-center space-x-2">
-        <div className="flex items-end space-x-[2px] h-6">
-          {waveformData.map((height, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-full w-0.5 transition-all duration-75"
-              style={{ height: `${height}%` }}
-            />
-          ))}
-        </div>
-        <span className="text-[10px] font-light text-white truncate max-w-[100px]">{trackName}</span>
+      <div className="flex items-end space-x-[2px] h-6">
+        {waveformData.map((h, i) => (
+          <div
+            key={i}
+            className="bg-white w-0.5 rounded-full transition-all duration-75"
+            style={{ height: `${h}%` }}
+          />
+        ))}
       </div>
 
-      <div className="backdrop-blur-sm bg-white/10 border border-white/10 px-2 py-1 rounded-lg flex items-center space-x-1">
-        <button onClick={togglePlay} className="hover:scale-110 transition-all duration-300">
-          {isPlaying ? <Pause className="w-4 h-4 text-white" /> : <Play className="w-4 h-4 text-white" />}
+      <span className="text-[10px] font-light ml-3 truncate max-w-[90px]">{trackName}</span>
+
+      <div className="flex items-center space-x-2 ml-3">
+        <button
+          onClick={togglePlay}
+          className="hover:scale-110 active:scale-95 hover:rotate-[5deg] transition-all duration-300"
+        >
+          {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
         </button>
-        <button onClick={toggleMute} className="hover:scale-110 transition-all duration-300">
-          {isMuted ? <VolumeX className="w-4 h-4 text-white" /> : <Volume2 className="w-4 h-4 text-white" />}
+        <button
+          onClick={toggleMute}
+          className="hover:scale-110 active:scale-95 hover:rotate-[-5deg] transition-all duration-300"
+        >
+          {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
         </button>
       </div>
     </div>
