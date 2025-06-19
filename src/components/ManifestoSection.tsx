@@ -49,7 +49,7 @@ const ManifestoSection = () => {
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <div className="space-y-8 md:space-y-12">
             {/* Rebranding de diagramação de textos */}
-            <span className="uppercase tracking-widest text-[0.85rem] font-semibold text-aurora-300 mb-4 block">Manifesto</span>
+            <span className="text-overline text-aurora-300 mb-4 block">Manifesto</span>
             {manifestoText.map((text, index) => (
               <div
                 key={index}
@@ -63,11 +63,11 @@ const ManifestoSection = () => {
                 style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <p className={`
-                  ${index === 0 ? 'font-ethereal text-[2.5rem] md:text-[3.5rem] font-bold leading-tight mb-2' : ''}
-                  ${index > 0 && index < 5 ? 'font-ethereal text-[2rem] md:text-[2.5rem] font-semibold leading-tight mb-2' : ''}
-                  ${index >= 5 && index < 12 ? 'font-ethereal text-[1.25rem] md:text-[1.5rem] font-medium leading-snug mb-2' : ''}
-                  ${index >= 12 && index < manifestoText.length - 1 ? 'font-ethereal text-[1.1rem] md:text-[1.25rem] font-normal leading-snug mb-2' : ''}
-                  ${index === manifestoText.length - 1 ? 'font-ethereal text-[2.5rem] md:text-[3.5rem] font-black leading-tight mb-2 animate-pulse-glow' : ''}
+                  ${index === 0 ? 'text-display mb-2' : ''}
+                  ${index > 0 && index < 5 ? 'text-title mb-2' : ''}
+                  ${index >= 5 && index < 12 ? 'text-body mb-2' : ''}
+                  ${index >= 12 && index < manifestoText.length - 1 ? 'text-caption mb-2' : ''}
+                  ${index === manifestoText.length - 1 ? 'text-display mb-2 animate-pulse-glow' : ''}
                   text-foreground
                 `}>
                   {text}

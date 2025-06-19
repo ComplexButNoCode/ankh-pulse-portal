@@ -65,7 +65,7 @@ const MusicPreviewSection = () => {
 
 	return (
 		<section className="relative min-h-screen bg-gray-900 flex flex-col items-center justify-center px-6 py-12">
-			<h2 className="font-ethereal text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight leading-[1.05] mb-8 text-white">
+			<h2 className="text-title mb-8 text-white">
 				Prévia das Músicas
 			</h2>
 			<div className="relative w-full max-w-md">
@@ -76,12 +76,12 @@ const MusicPreviewSection = () => {
 					style={{ backgroundImage: `url(${songs[currentIndex].cover})` }}
 				></div>
 				<div className="absolute inset-0 flex flex-col items-center justify-center">
-					<h3 className="font-ethereal text-[1.5rem] md:text-[2rem] font-semibold text-white mb-4">
+					<h3 className="text-subtitle text-white mb-4">
 						{songs[currentIndex].title}
 					</h3>
 					<button
 						onClick={togglePlayPause}
-						className="font-ethereal text-[1.1rem] text-link bg-white text-gray-800 font-semibold px-4 py-2 rounded shadow hover:bg-gray-200 transition"
+						className="text-link bg-white text-gray-800 font-semibold px-4 py-2 rounded shadow hover:bg-gray-200 transition"
 					>
 						{isPlaying ? 'Pausar Prévia' : 'Tocar Prévia'}
 					</button>

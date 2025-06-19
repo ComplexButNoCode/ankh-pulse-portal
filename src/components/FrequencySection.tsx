@@ -18,10 +18,10 @@ const FrequencySection = () => {
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
         {/* Main CTA */}
         <div className="mb-16">
-          <h2 className="font-ethereal text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight leading-[1.05] mb-8 text-foreground">
+          <h2 className="text-title mb-8 text-foreground">
             JOIN THE FREQUENCY
           </h2>
-          <p className="font-ethereal text-[1.25rem] md:text-[1.5rem] text-aurora-300 max-w-2xl mx-auto leading-relaxed mb-12 font-medium">
+          <p className="text-body text-aurora-300 max-w-2xl mx-auto mb-12 font-medium">
             Synchronize with the eternal pulse. Become part of the living broadcast.
           </p>
 
@@ -91,17 +91,17 @@ const FrequencySection = () => {
 
         {/* Additional CTAs */}
         <div className="space-y-6">
-          <button className="w-full max-w-md mx-auto block cosmic-blur rounded-2xl px-8 py-4 font-ethereal text-[1.5rem] text-cosmos-300 hover:text-white transition-all duration-300 hover:scale-105 hover:animate-pulse-glow font-bold">
+          <button className="w-full max-w-md mx-auto block cosmic-blur rounded-2xl px-8 py-4 text-title text-cosmos-300 hover:text-white transition-all duration-300 hover:scale-105 hover:animate-pulse-glow font-bold">
             STREAM NOW
           </button>
           <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <button className="cosmic-blur rounded-xl px-6 py-3 font-ethereal text-aurora-200 hover:text-white transition-colors">
+            <button className="cosmic-blur rounded-xl px-6 py-3 text-body text-aurora-200 hover:text-white transition-colors">
               Subscribe to Updates
             </button>
-            <button className="cosmic-blur rounded-xl px-6 py-3 font-ethereal text-aurora-200 hover:text-white transition-colors">
+            <button className="cosmic-blur rounded-xl px-6 py-3 text-body text-aurora-200 hover:text-white transition-colors">
               Join Community
             </button>
-            <button className="cosmic-blur rounded-xl px-6 py-3 font-ethereal text-aurora-200 hover:text-white transition-colors">
+            <button className="cosmic-blur rounded-xl px-6 py-3 text-body text-aurora-200 hover:text-white transition-colors">
               Submit Content
             </button>
           </div>

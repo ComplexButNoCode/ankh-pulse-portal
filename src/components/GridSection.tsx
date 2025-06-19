@@ -33,10 +33,10 @@ const GridSection = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="font-ethereal text-[2.5rem] md:text-[3.5rem] font-bold tracking-tight leading-[1.05] mb-6 text-foreground">
+          <h2 className="text-title mb-6 text-foreground">
             THE GRID
           </h2>
-          <p className="font-ethereal text-[1.25rem] md:text-[1.5rem] text-aurora-300 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-body text-aurora-300 max-w-3xl mx-auto">
             A living mosaic of moments, memories, and manifestations. Each cell pulses with collective energy.
           </p>
         </div>
@@ -57,21 +57,16 @@ const GridSection = () => {
                 bg-gradient-to-br ${getItemGradient(item.type)}
               `}>
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/10 to-transparent" />
-                
-                {/* Content */}
                 <div className="absolute inset-0 p-6 flex flex-col justify-between">
-                  {/* Type indicator */}
                   <div className="flex justify-between items-start">
                     <div className={`
                       w-3 h-3 rounded-full animate-pulse
                       ${item.type === 'live' ? 'bg-red-400' : 'bg-cosmos-400'}
                     `} />
                     {item.type === 'live' && (
-                      <div className="text-xs font-ethereal text-red-300 animate-pulse">LIVE</div>
+                      <div className="text-caption text-red-300 animate-pulse">LIVE</div>
                     )}
                   </div>
-
-                  {/* Title and description */}
                   <div className={`
                     transition-all duration-300
                     ${hoveredIndex === index ? 'opacity-100 translate-y-0' : 'opacity-70 translate-y-2'}
@@ -79,7 +74,7 @@ const GridSection = () => {
                     <h3 className="text-subtitle mb-2">
                       {item.title}
                     </h3>
-                    <p className="text-caption text-aurora-200 leading-relaxed">
+                    <p className="text-caption text-aurora-200">
                       {item.description}
                     </p>
                   </div>
@@ -109,6 +104,11 @@ const GridSection = () => {
           </div>
         </div>
       </div>
+    </section>
+  );
+};
+
+export default GridSection;
     </section>
   );
 };
