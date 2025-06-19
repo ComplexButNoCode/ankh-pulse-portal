@@ -33,7 +33,7 @@ const MiniPlayer = () => {
       analyser.getByteFrequencyData(dataArray);
       const values = Array.from(dataArray)
         .slice(0, 10)
-        .map(v => Math.max(6, v * 0.4)); // altura limitada
+        .map(v => Math.min(Math.max(2, v * 0.2), 8));
       setWaveformData(values);
       requestAnimationFrame(update);
     };
