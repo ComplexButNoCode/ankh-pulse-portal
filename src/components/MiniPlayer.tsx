@@ -26,7 +26,7 @@ const MiniPlayer = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const togglePlay = () => {
+  const togglePlay = () => 
     const audio = audioRef.current;
     if (!audio) return;
     if (audio.paused) {
