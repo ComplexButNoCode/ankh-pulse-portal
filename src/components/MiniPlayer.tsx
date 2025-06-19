@@ -69,11 +69,11 @@ const MiniPlayer = () => {
       <audio ref={audioRef} src={audioSrc} loop preload="auto" />
 
       {isPlaying && (
-        <div className="flex items-end space-x-[2px] h-6 transition-all duration-300">
+        <div className="flex items-center space-x-[2px] h-6">
           {waveformData.map((h, i) => (
             <div
               key={i}
-              className="bg-white w-0.5 rounded-full transition-all duration-75"
+              className="bg-white w-0.5 rounded-full transition-all duration-75 origin-center"
               style={{ height: `${h}%` }}
             />
           ))}
@@ -81,7 +81,7 @@ const MiniPlayer = () => {
       )}
 
       <div className="relative ml-3 max-w-[90px] group overflow-hidden">
-        <span className="text-[10px] font-light truncate block transition-all duration-300 group-hover:max-w-[200px] group-hover:overflow-visible">
+        <span className="text-[10px] font-light truncate block transition-all duration-300 group-hover:max-w-[200px] group-hover:whitespace-normal group-hover:overflow-visible">
           {trackName}
         </span>
       </div>
