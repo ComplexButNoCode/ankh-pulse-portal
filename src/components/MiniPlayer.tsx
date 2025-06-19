@@ -68,7 +68,11 @@ const MiniPlayer = () => {
     <div className="fixed bottom-4 right-4 z-50 flex items-center space-x-2 backdrop-blur-sm bg-white/10 border border-white/10 px-3 py-2 rounded-xl text-white">
       <audio ref={audioRef} src={audioSrc} loop preload="auto" />
 
-      <div className="flex items-end space-x-[2px] h-6">
+      <div
+        className={`flex items-end space-x-[2px] transition-all duration-300 ${
+          isPlaying ? 'h-6 opacity-100 scale-100' : 'h-0 opacity-0 scale-90'
+        } overflow-hidden`}
+      >
         {waveformData.map((h, i) => (
           <div
             key={i}
@@ -78,8 +82,8 @@ const MiniPlayer = () => {
         ))}
       </div>
 
-      <div className="relative group ml-3">
-        <span className="text-[10px] font-light truncate max-w-[90px] group-hover:max-w-none group-hover:whitespace-normal group-hover:absolute group-hover:left-0 group-hover:bg-black group-hover:px-2 group-hover:py-1 group-hover:rounded-md transition-all duration-300">
+      <div className="relative ml-3 max-w-[90px] group overflow-hidden">
+        <span className="text-[10px] font-light truncate block transition-all duration-300 group-hover:max-w-[200px] group-hover:whitespace-normal group-hover:overflow-visible">
           {trackName}
         </span>
       </div>
